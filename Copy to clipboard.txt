@@ -1,0 +1,17 @@
+"Einfügen in ein Formelfeld.
+concat(this) --> muss durch den Feldnamen ersetzt werden, wenn nur ein Feld kopiert werden soll. Anderenfalls wird der ganze Datensatz kopiert.
+FUNKTIONIERT AUFGRUND DES BROWSER-CACHES NICHT IMMER!!!!!";
+html("<button style='background:#4970FF;color:white;border: none;padding:10px 10px 10px 10px' onclick='copyToClipboard(""" + concat(this) + """)'>Copy to clipboard</button>
+<script>
+function copyToClipboard(str) {
+var el = document.createElement('textarea');
+el.value = str;
+el.setAttribute('readonly', '');
+el.style.position = 'absolute';
+el.style.left = '-9999px';
+document.body.appendChild(el);
+el.select();
+document.execCommand('copy');
+document.body.removeChild(el);
+}
+</script>")
